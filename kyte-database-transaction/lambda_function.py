@@ -18,7 +18,7 @@ def db_connection(db_name):
 def lambda_handler(event, context):
     try:
         for record in event['Records']:
-            body = json.loads(record['body'])
+            body = json.loads(record['Sns']['Message'])
             action = body.get('action')
 
             actions = {
